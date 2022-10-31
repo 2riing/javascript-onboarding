@@ -1,5 +1,14 @@
 function problem3(number) {
-  var answer;
+  let answer;
+
+  for (let i = 1; i < number + 1; i++) {
+    let num = i + "";
+    for (let j = 0; j < num.length; j++) {
+      if (num[j] == 3 || num[j] == 6 || num[j] == 9) {
+        answer += 1;
+      }
+    }
+  }
   return answer;
 }
 
