@@ -1,7 +1,12 @@
 function problem4(word) {
-  var answer;
+  var answer = "";
   for (let value of word) {
-    console.log(value.charCodeAt(0));
+    const num = value.charCodeAt(0);
+    if (65 <= num && num <= 90) {
+      answer += String.fromCharCode(155 - num);
+    } else if (97 <= num && num <= 122) {
+      answer += String.fromCharCode(219 - num);
+    } else answer += value;
   }
   return answer;
 }
