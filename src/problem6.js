@@ -1,17 +1,20 @@
 function problem6(forms) {
-  var answer;
+  let answer = [];
   const patterns = {};
-  const banId = {};
-
+  const banId = new Set();
   forms.forEach(([email, nickname]) => {
     for (let i = 0; i < nickname.length - 1; i++) {
       const pattern = nickname.substring(i, i + 2);
       if (patterns[pattern]) {
+        // 이미 patterns에 있는 중복이라면
+        banId.add(email);
+        banId.add(patterns[pattern]);
+      } else {
+        patterns[pattern] = email;
       }
     }
-    console.log(email, nickname);
   });
-
+  answer = [...banId].sort();
   return answer;
 }
 
